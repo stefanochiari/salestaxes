@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.lastminute.taxes.ApplicationTest;
-
 import it.stefanochiari.salestaxes.model.Item;
 import it.stefanochiari.salestaxes.model.Receipt;
 import it.stefanochiari.salestaxes.model.SimpleReceipt;

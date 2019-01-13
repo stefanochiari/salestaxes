@@ -1,4 +1,4 @@
-package com.lastminute.taxes;
+package it.stefanochiari.salestaxes;
 
 import static org.junit.Assert.assertTrue;
 
