@@ -3,10 +3,16 @@ package it.stefanochiari.salestaxes.application;
 import it.stefanochiari.salestaxes.model.SimpleItem;
 import it.stefanochiari.salestaxes.model.TaxModel;
 
-/*
-*
-* Shopping carts should be retrieved from a repository
-*/
+
+/**
+ * This factory will create ShoppingCarts required for the test.<br>
+ * A better implementation could retrieve them from a repository, a database 
+ * (in a real world application, a shopping cart is usually persistent), or 
+ * at least a serialized object saved on file system
+ * 
+ * @author Stefano Chiari
+ *
+ */
 public class TestingShoppingCartFactory {
 	
 	private TaxModel taxModel;

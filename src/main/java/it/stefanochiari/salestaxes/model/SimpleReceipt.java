@@ -5,9 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * It is a list of taxed items. 
+ * It provides informations about total taxes applied and the total to be paid
+ * 
+ * @author Stefano Chiari
+ *
+ */
 public class SimpleReceipt implements Receipt {
 	
 	private final static Logger log = Logger.getLogger(SimpleReceipt.class.getName());
@@ -16,6 +22,9 @@ public class SimpleReceipt implements Receipt {
 	protected float totalTaxesApplied = 0;
 	protected float toBePaid = 0;
 	
+	/**
+	 * @param taxedItems a list of items whose taxes are already computed
+	 */
 	public SimpleReceipt(List<TaxedItem> taxedItems) {	
 		this.taxedItems = taxedItems;
 		for (TaxedItem taxedItem : this.taxedItems) {
@@ -25,8 +34,11 @@ public class SimpleReceipt implements Receipt {
 		log.info("Receipt created for a total of " + this.toBePaid);
 	}
 
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.Receipt#display()
+	
+	/** 
+	 * Displays the receipt on system console
+	 * 
+	 * @see it.stefanochiari.salestaxes.model.Receipt#display()
 	 */
 	@Override
 	public void display() {
@@ -39,22 +51,27 @@ public class SimpleReceipt implements Receipt {
 		System.out.println("Total: " + this.getTotalToBePaid() + "\n********\n");
 	}
 	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.Receipt#getTotalTaxesApplied()
+	/**
+	 * 
+	 * @see it.stefanochiari.salestaxes.model.Receipt#getTotalTaxesApplied()
 	 */
 	@Override
 	public float getTotalTaxesApplied() { 
 		return this.totalTaxesApplied;
 	}
 	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.Receipt#getTotalToBePaid()
+	/**
+	 * 
+	 * @see it.stefanochiari.salestaxes.model.Receipt#getTotalToBePaid()
 	 */
 	@Override
 	public float getTotalToBePaid() {
 		return this.toBePaid;
 	}
 
+	/**
+	 * @see it.stefanochiari.salestaxes.model.Receipt#getItemsToBeDisplayed()
+	 */
 	@Override
 	public String[] getItemsToBeDisplayed() {
 		int i = 0;

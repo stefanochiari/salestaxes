@@ -2,8 +2,12 @@ package it.stefanochiari.salestaxes.model;
 
 import java.util.logging.Logger;
 
-import it.stefanochiari.salestaxes.application.ShoppingCart;
-
+/**
+ * The product item
+ * 
+ * @author Stefano Chiari
+ *
+ */
 public class SimpleItem implements Item {
 	
 	private final static Logger log = Logger.getLogger(SimpleItem.class.getName());
@@ -14,6 +18,12 @@ public class SimpleItem implements Item {
 	protected boolean imported;
 	
 	
+	/**
+	 * @param name			Name and/or description of the item
+	 * @param price			Net price
+	 * @param taxType		A tax type as defined in TaxModel as an enumeration
+	 * @param imported		Boolean. True if it is imported 
+	 */
 	public SimpleItem(String name, float price, TaxModel.TaxType taxType, boolean imported) {
 		super();
 		this.name = name;
@@ -23,14 +33,28 @@ public class SimpleItem implements Item {
 		log.finest("Item created: " + name);
 	}
 	
+	/** 
+	 * 
+	 * @return name     the item name
+	 * @see it.stefanochiari.salestaxes.model.Item#getName()
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * 
+	 * @param name		The item name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.ItemInterface#getPrice()
+	
+	/**
+	 * 
+	 * @return price 	The price
+	 * @see it.stefanochiari.salestaxes.model.Item#getPrice()
 	 */
 	@Override
 	public float getPrice() {
@@ -39,19 +63,16 @@ public class SimpleItem implements Item {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.ItemInterface#getTaxType()
-	 */
+
 	@Override
 	public SimpleTaxModel.TaxType getTaxType() {
 		return taxType;
 	}
+	
 	public void setTaxType(TaxModel.TaxType taxType) {
 		this.taxType = taxType;
 	}
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.ItemInterface#isImported()
-	 */
+
 	@Override
 	public boolean isImported() {
 		return imported;

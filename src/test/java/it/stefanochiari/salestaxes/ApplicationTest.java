@@ -2,6 +2,7 @@ package it.stefanochiari.salestaxes;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.junit.After;
@@ -16,7 +17,9 @@ import it.stefanochiari.salestaxes.model.SimpleTaxModel;
 import it.stefanochiari.salestaxes.model.TaxModel;
 
 /**
- * Unit test for simple App.
+ * Unit test for Sales Taxes Application.
+ * 
+ * @author Stefano Chiari
  */
 public class ApplicationTest 
 {
@@ -29,8 +32,12 @@ public class ApplicationTest
 	private Receipt receipt2;
 	private Receipt receipt3;
 
+    /**
+     * @throws Exception  	If it were to call a database, could be a timeout or similar
+     */
     @Before
     public void setUp() throws Exception {
+    	log.setLevel(Level.INFO);
     	log.info("Setting up...");
         this.taxModel = new SimpleTaxModel();
         this.scFactory = new TestingShoppingCartFactory(this.taxModel);

@@ -2,6 +2,13 @@ package it.stefanochiari.salestaxes.model;
 
 import java.util.logging.Logger;
 
+/**
+ * A very simple implementation. It will use the 
+ * TaxModel to calculate taxes to be applied
+ * 
+ * @author Stefano Chiari
+ *
+ */
 public class SimpleTaxedItem implements TaxedItem {
 	
 	private final static Logger log = Logger.getLogger(SimpleTaxedItem.class.getName());
@@ -10,6 +17,11 @@ public class SimpleTaxedItem implements TaxedItem {
 	protected float taxedPrice;
 	protected float tax;
 	
+	
+	/**
+	 * @param item		the item to be taxed
+	 * @param t			the tax model
+	 */
 	public SimpleTaxedItem(Item item, TaxModel t) {
 		this.item = item;
 		t.applyTax(this.item);
@@ -18,41 +30,41 @@ public class SimpleTaxedItem implements TaxedItem {
 		log.finest("Taxed item created for: " + item.getName() + " price: " + item.getPrice() + " - tax:" + this.tax + " to pay: " + this.taxedPrice);
 	}
 	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.TaxedItem#getTaxedPrice()
+	/**
+	 * 
+	 * @return taxedPrice 	the gross price
+	 * @see it.stefanochiari.salestaxes.model.TaxedItem#getTaxedPrice()
 	 */
 	@Override
 	public float getTaxedPrice() {
 		return taxedPrice;
 	}
 	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.TaxedItem#getName()
+	/**
+	 * 
+	 * @return the item name
+	 * @see it.stefanochiari.salestaxes.model.TaxedItem#getName()
 	 */
 	@Override
 	public String getName() {
 		return this.item.getName();
 	}
 	
+	/**
+	 * @return the net price
+	 */
 	public float getOriginalPrice() {
 		return this.item.getPrice();
 	}
 	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.TaxedItem#getTotalTaxesApplied()
+	/**
+	 * @return the taxes applied
+	 * @see it.stefanochiari.salestaxes.model.TaxedItem#getTotalTaxesApplied()
 	 */
 	@Override
 	public float getTotalTaxesApplied() {
 		return this.tax;
 	}
-	
-	/* (non-Javadoc)
-	 * @see ch.lastminute.taxes.model.TaxedItem#setTaxedPrice(float)
-	 */
-	@Override
-	public void setTaxedPrice(float  taxedPrice) {
-		this.taxedPrice = taxedPrice;
-	}
-	
+		
 
 }
